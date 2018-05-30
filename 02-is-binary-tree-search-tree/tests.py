@@ -1,4 +1,5 @@
-from BinaryTree import Node, checkBST
+from Node import Node
+from checkBST import checkBST
 
 def test_single_node_tree():
     """ root node is the only node
@@ -15,7 +16,7 @@ def test_tree_with_single_left_and_right_nodes():
 def test_tree_with_height_of_2():
     """ tree with height = 2
     """
-    root = Node(5, Node(4, Node(3), Node(12)), Node(6, Node(1), Node(10)))
+    root = Node(5, Node(3, Node(1), Node(4)), Node(8, Node(7), Node(10)))
     assert checkBST(root) is True
 
 def test_tree_with_duplicate_nodes():
