@@ -22,6 +22,10 @@ def test_tree_with_duplicate_nodes():
     root = Node(5, Node(4, Node(3), Node(5)), Node(6, Node(1), Node(10)))
     assert checkBST(root) is False
 
+def test_tree_with_one_duplicate_node():
+    root = Node(2, Node(1), Node(2))
+    assert checkBST(root) is False
+
 def test_tree_with_out_of_range_value():
     root = Node(-1, Node(2), Node(4))
     assert checkBST(root) is False
@@ -32,4 +36,8 @@ def test_tree_with_out_of_range_value_max():
 
 def test_non_binary_search_tree():
     root = Node(3, Node(4), Node(2))
+    assert checkBST(root) is False
+
+def test_non_bst_2():
+    root = Node(2, Node(1), Node(2))
     assert checkBST(root) is False
