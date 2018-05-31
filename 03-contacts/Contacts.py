@@ -25,17 +25,13 @@ class Contacts:
 
     def add(self, contact):
         chars = list(contact)
-        print("Initial chars: %s" % chars)
 
         def add_string_to_trie(node, remaining_chars):
-            print("Remaining chars: %s" % remaining_chars)
             if len(remaining_chars) == 0:
                 node.add_to_count()
                 return
 
-            print("Adding to count")
             node.add_to_count()
-            print("Count at node after addition: %s" % node.get_count())
 
             next_char, *rest = remaining_chars
 
@@ -55,7 +51,6 @@ class Contacts:
             return node.get_count()
 
         def find_node_at_str(node, remaining_chars):
-            print("Remaining characters: %s" % remaining_chars)
             if len(remaining_chars) == 0:
                 return count_words(node)
 
