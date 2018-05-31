@@ -51,3 +51,5 @@ Finally, let's add the word "addition":
     o : 1
     |
     n : 1
+
+When we perform find operations, we now just look at the count associated with each node. For instance, there are 3 words that begin with "a". There are 2 words that begin with "ad", etc.
