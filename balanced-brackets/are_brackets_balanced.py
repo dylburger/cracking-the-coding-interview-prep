@@ -25,33 +25,32 @@ def get_matching_left_bracket(char):
 
     return left_bracket_dict[char]
 
-def is_balanced(brackets):
+def is_balanced(bracket_string):
+    """ Given a string of bracket characters - (), {} or [] -
+        return true if the string of brackets are "balanced", else False
+    """
+    stack = []
+    balanced = True
+    for char in bracket_string:
+        if is_left_bracket(char):
+            stack.append(char)
+            continue
 
-    def are_brackets_balanced(bracket_string, stack):
-        """ Given a string of bracket characters - (), {} or [] -
-            return true if the string of brackets are "balanced", else False
-        """
-        if len(bracket_string) == 0:
-            return len(stack) == 0
-
-        next_char, *rest = bracket_string
-
-        if is_left_bracket(next_char):
-            stack.append(next_char)
-            return are_brackets_balanced(rest, stack)
-
-        if is_right_bracket(next_char):
+        if is_right_bracket(char):
             # If the stack is empty, we have a right bracket without 
             # a matching left bracket
             if len(stack) == 0:
-                return False
+                balanced = False
+                break
 
             # The last element of our stack should be the left bracket
             # that matches the current right bracket. If not, the brackets
             # are unbalanced
-            if not stack.pop() == get_matching_left_bracket(next_char):
-                return False
+            if not stack.pop() == get_matching_left_bracket(char):
+                balanced = False
+                break
 
-            return are_brackets_balanced(rest, stack)
+    if balanced is False:
+        return False
 
-    return are_brackets_balanced(brackets, [])
+    return len(stack) == 0
