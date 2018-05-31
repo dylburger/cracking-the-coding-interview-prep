@@ -5,14 +5,14 @@ def is_left_bracket(char):
         return the match object if the character is a left bracket, else None
     """
     pattern = r'[\[{(]'
-    return re.fullmatch(pattern, char)
+    return re.search(pattern, char)
 
 def is_right_bracket(char):
     """ Given a character, 
         return the match object if the character is a right bracket, else None
     """
     pattern = r'[\]})]'
-    return re.fullmatch(pattern, char)
+    return re.search(pattern, char)
 
 def get_matching_left_bracket(char):
     """ Given a right bracket, return the matching left bracket
