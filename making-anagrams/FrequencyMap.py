@@ -22,7 +22,7 @@ def compare_frequency_maps(freq_map_1, freq_map_2):
     freq_dict_2 = freq_map_2.get_frequency_dict()
 
     sum_of_differences = 0
-    for char, freq in freq_dict_1:
+    for char, freq in freq_dict_1.items():
         sum_of_differences += abs(freq_dict_1[char] - freq_dict_2[char])
 
     return sum_of_differences
