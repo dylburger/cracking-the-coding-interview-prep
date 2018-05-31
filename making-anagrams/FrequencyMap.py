@@ -4,6 +4,8 @@ class FrequencyMap:
     def __init__(self, user_str):
         """ Given a string, generate a dictionary of character frequencies
             Constraint: our string contains only lowercase characters a-z
+            Characters that do not occur in our map are still present, 
+            with frequencies of 0
         """
         self.frequency_map = { char : 0 for char in string.ascii_lowercase }
         for char in user_str:
