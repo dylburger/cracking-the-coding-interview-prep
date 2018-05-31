@@ -1,4 +1,18 @@
 from Contacts import Contacts
+from Contacts import Node
+
+def add_and_get_count_for_node():
+    n = Node()
+    n.add_to_count()
+    n.add_to_count()
+    assert n.get_count() == 2
+
+def add_char_to_node_and_retrieve():
+    n = Node()
+    char = 'a'
+    assert n.is_char_in_nodes(char) is False
+    n.add_char_to_nodes(char)
+    assert n.is_char_in_nodes(char) is True
 
 def test_add_new_contact():
     c = Contacts()
