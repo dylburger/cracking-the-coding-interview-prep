@@ -1,18 +1,21 @@
 import re
 
+
 def is_left_bracket(char):
-    """ Given a character, 
+    """ Given a character,
         return the match object if the character is a left bracket, else None
     """
     pattern = r'[\[{(]'
     return re.search(pattern, char)
 
+
 def is_right_bracket(char):
-    """ Given a character, 
+    """ Given a character,
         return the match object if the character is a right bracket, else None
     """
     pattern = r'[\]})]'
     return re.search(pattern, char)
+
 
 def get_matching_left_bracket(char):
     """ Given a right bracket, return the matching left bracket
@@ -24,6 +27,7 @@ def get_matching_left_bracket(char):
     }
 
     return left_bracket_dict[char]
+
 
 def is_balanced(bracket_string):
     """ Given a string of bracket characters - (), {} or [] -
@@ -37,7 +41,7 @@ def is_balanced(bracket_string):
             continue
 
         if is_right_bracket(char):
-            # If the stack is empty, we have a right bracket without 
+            # If the stack is empty, we have a right bracket without
             # a matching left bracket
             if len(stack) == 0:
                 balanced = False
